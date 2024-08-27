@@ -1,17 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Admin Dashboard</title>
-</head>
-<body>
-    <h1>Admin Page</h1>
+<html>
+  <head> 
+    @include('admin.head')
+  </head>
+  <body>
+    <header class="header">   
+      @include('admin.header')
+    </header>
+    <div class="d-flex align-items-stretch">
+      <!-- Sidebar Navigation-->
+      <nav id="sidebar">
+        @include('admin.sidebar')
+      </nav>
+      <!-- Sidebar Navigation end-->
 
-    <form method="POST" action="{{ route('logout') }}">
-        @csrf
-        <input type="submit" value="Logout">
-    </form>
-</body>
+      <div class="page-content">
+        @include('admin.body')
+      </div>
+    </div>
+    
+    <!-- JavaScript files-->
+    <script src="{{asset('/adminTemplate/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('/adminTemplate/vendor/popper.js/umd/popper.min.js')}}"> </script>
+    <script src="{{asset('/adminTemplate/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('/adminTemplate/vendor/jquery.cookie/jquery.cookie.js')}}"> </script>
+    <script src="{{asset('/adminTemplate/vendor/chart.js/Chart.min.js')}}"></script>
+    <script src="{{asset('/adminTemplate/vendor/jquery-validation/jquery.validate.min.js')}}"></script>
+    <script src="{{asset('/adminTemplate/js/charts-home.js')}}"></script>
+    <script src="{{asset('/adminTemplate/js/front.js')}}"></script>
+  </body>
 </html>
